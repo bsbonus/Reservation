@@ -1,0 +1,25 @@
+
+<div id="delete_options_wrapper">
+	<div class="delete_options clearfix">
+		<div class= "delete_options_header">Associated Recurring Reservations</div>
+		<%= form_tag 'delete_multiple' do %>	
+			<% if @associated_recurrances.length > 1 %>
+				<% @associated_recurrances.each do |assoc_recur|%>
+				  <div class="options">
+				    <%= check_box_tag("reservation_ids[]", assoc_recur.id, false)%>
+				    <%= assoc_recur.date %>
+				  </div>
+				<% end %>
+				<div class="options">
+					<%= check_box_tag("reservation_ids[]", @id_list, false) %>All
+				</div>
+			<% else %>
+			    <div class="options">
+					<%= check_box_tag("reservation_ids[]", @reservation.id, false) %>
+					<%= "This reservation" %>
+				</div>
+			<% end %>
+			<%= submit_tag "Delete Selected", id: "DeleteSelectedButton" %>
+		<% end %>
+	</div>
+</div>

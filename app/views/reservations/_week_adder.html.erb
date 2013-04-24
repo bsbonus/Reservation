@@ -1,0 +1,3 @@
+<%= link_to 'remove one week', reservations_path(:limit => @limit - 1) %>
+<%= link_to 'see another week', reservations_path(:limit => @limit + 1) %>
+<%= link_to 'see whole month', reservations_path(:limit => 3) %>

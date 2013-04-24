@@ -1,0 +1,177 @@
+#create_reserv_form{
+	border: 0px;
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 10px;
+	background-color: rgb(241, 247, 255);
+	label{
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+		font-family: "Lucida Grande";
+		font-size: 12px;
+	}
+	#datepicker{
+		margin-bottom: 15px;
+	}
+
+	.timepicker{
+		margin-bottom: 15px;
+	}
+
+	#ui-datepicker-div{
+		height: 100px;
+	}
+	#ui-datepicker-calendar tr{
+		height: 50px;
+	}
+
+	#create_reserv_button{
+		display: block;
+		margin-top: 40px;
+		font-size: 14px;
+		color: #222;
+		background-color: rgb(165, 205, 247);
+		border: none;
+
+		&:hover{
+			color: #888;
+			background-color: #DDD;
+		}
+	}
+}
+
+.form_wrapper{
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 40px;
+	a{
+		font-family: "Lucida Grande";
+		text-decoration: none;
+		color: grey;
+		background-color: white;
+		padding: 10px;
+	}
+	a:hover{
+		color: #222;
+		text-decoration: underline;
+	}
+
+	#delete_button{
+		position: relative;
+		left: 210px;
+	}
+}
+
+.option_button_wrapper{
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 20px;
+}
+
+.update_partial_zone{
+	display: none;
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: rgb(241, 247, 255);
+	padding-left: 12px;
+	padding-right: 12px;
+
+	a{
+		padding: 3px;
+		font-family: "Lucida Grande";
+		font-size: 12px;
+		text-decoration: none;
+		background-color: rgb(165, 205, 247);
+		color: #222;
+	}
+
+	.options_header{
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	#UpdateSelectedButton{
+		display: none;
+	}
+}
+
+.delete_partial_zone{
+	padding-left: 12px;
+	padding-right: 12px;
+	margin-top: 10px;
+	display: none;
+}
+
+.back_button_wrapper{
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.back_button{
+	text-decoration: none;
+	font-family: "Lucida Grande";
+	font-size: 14px;
+	padding: 5px;
+	margin-right: 20px;
+	background-color: #a5cdf7;
+	color: #222;
+
+	&:hover{
+		color: #888;
+		background-color: #DDD;
+	}
+}
+
+.update_multiple_div{
+	background-color: rgb(241, 247, 255);
+}
+
+.update_multiple_wrapper{
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+
+	.update_options{
+		padding: 5px;
+		width: 120px;
+		text-align: center;
+		font-family: helvetica;
+		float: left;
+		margin: 5px;
+		background-color: rgb(165, 205, 247);
+		color: #2a2b2c;
+	}
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {display: inline-block;} 
+
+#error_explanation{
+
+	h2{
+		font-size: 16px;
+		text-align: center;
+		background-color: pink;
+	}
+
+	ul{
+		list-style: decimal;
+		background-color: red;
+	}
+
+}

@@ -1,0 +1,191 @@
+// Place all the styles related to the ReservationsController controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+footer{
+	height: 60px;
+	background-color: #f9f9f9;
+	position: relative;
+	width: 100%;
+	bottom: 0%;
+
+	div{
+		text-align: center;
+		padding: 0px;
+		padding-top: 25px;
+	}
+}
+
+#login_area{
+	border-bottom: 1px solid grey;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	width: 100%;
+	font-family: helvetica;
+	background-color: #f9f9f9;
+
+	a{
+		text-decoration: none;
+		padding-left: 30px;
+		color: grey;
+		font-style: italic;
+	}
+	a:hover{
+		color: black;
+	}
+}
+
+h1{
+	font-family: helvetica;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+	text-align: center;
+}
+
+#create_button{
+	text-decoration: none;
+	color: #f2f2f2;
+	background-color: #71b3f7;
+	padding: 5px;
+	margin-left: 50px;
+	width: 40px;
+	height: 50px;
+	font-size: 16px;
+	font-family: Helvetica, Arial, sans-serif;
+
+	&:hover{
+		background-color: #999;
+	}
+}
+
+
+#calendar_wrapper{
+	background-color: #f2f2f2;
+	width: 1100px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	border-radius: 10px;
+	padding: 40px;
+
+}
+
+#month{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 1000px;
+
+	a{
+		text-decoration: none;
+		color: grey;
+		font-size: 20px;
+	}
+	a:hover{
+		color: #71b3f7;
+	}
+}
+
+#week_adder{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: right;
+	width: 1000px;
+	position: relative;
+	top: -150px;
+	a{
+		text-decoration: none;
+		color: grey;
+		font-size: 12px;
+		margin-left: 10px;
+		padding: 10px;
+	}
+	a:hover{
+		background-color: #f9f9f9;
+	}
+}
+
+#calendar{
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+}
+
+th{
+	background-color: #CCC;
+	border-radius: 3px;
+	font-family: "Lucida Grande", arial, helvetica, sans-serif;
+	padding: 5px;
+	font-size: 10px;
+}
+
+#today{
+	background-color: rgb(178, 224, 255);
+
+		div{
+			color: #222;
+			font-size: 12px;
+		}
+	}
+
+#not_today{
+	background-color: #DDD;
+}
+
+#not_in_month{
+	background-color: #CCC;
+}
+
+.cell{
+	height: 150px;
+	width: 200px;
+	border-radius: 3px;
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+
+	div{
+		font-size: 10px;
+		color: grey;
+		position: absolute;
+		top: 0%;
+	}
+
+	a{
+
+	}
+
+	a:hover{
+		background-color: #666;
+	}
+}
+
+.recurrance{
+	font-size: 10px;
+	font-family: "Lucida Grande";
+	text-decoration: none;
+	margin: 0px;
+	color: #222;
+	border-radius: 2px;
+	background-color: rgb(178, 224, 255);
+}
+
+.normal{
+	font-size: 10px;
+	font-family: "Lucida Grande";
+	text-decoration: none;
+	margin: 0px;
+	color: #222;
+	border-radius: 2px;
+	background-color: #AAA;
+}
+
+.delete_partial_zone{
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}

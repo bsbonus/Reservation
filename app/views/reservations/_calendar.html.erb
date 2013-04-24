@@ -1,0 +1,23 @@
+<div id="calendar_wrapper">
+	<%= link_to 'Create Reservation', new_reservation_path, :id => "create_button" %>
+	<h1>GOOD Reservations</h1>
+	<h2 id="month">
+	  <% calendar_header %>
+	  <% week_limit %>
+	  <%= link_to '<', reservations_path(:date => @date.prev_month, :limit => @limit) %>  
+	  <%= @date.strftime("%B %Y") %>
+	  <%= link_to '>', reservations_path(:date => @date.next_month, :limit => @limit) %>  
+	</h2>
+	<h3 id="week_adder">
+		<%= render 'week_adder' %>
+	</h3>
+
+	<table id="calendar">
+		<% headers = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday] %>
+		<% headers.each do |day_name| %>
+			<%= content_tag(:th, day_name) %>
+		<% end %>
+		<%= render_weeks(@date, @limit) %>
+
+	</table>
+</div>

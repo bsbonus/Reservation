@@ -1,0 +1,23 @@
+<% @recurrances.each do |reserv| %>
+  <div>
+  	<%= reserv.start_date %>
+  	<%= 'id=' + reserv.id.to_s %>
+  	<%= 'parent_id= ' + reserv.parent_id.to_s %>
+  	<%= 'duration: ' + reserv.duration.to_s %>
+  </div>
+<% end %>
+
+<% @reservations.each do |reserv| %>
+	  <div>
+	  	<%= reserv.date %>
+	  	<%= reserv.id.to_s %>
+	  	<%= 'recurrance_id=' + reserv.recurrance_id.to_s %>
+	  </div>
+<% end %>
+
+<% @exclusions.each do |exclusion| %>
+	<div>
+		<%= "Exclusion ID: " + exclusion.recurrance_id.to_s %>
+		<%= "Date Excluded " + exclusion.reserv_exclusion.to_s %>
+	</div>
+<% end %>

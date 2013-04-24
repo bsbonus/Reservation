@@ -1,0 +1,47 @@
+.delete_options{
+	margin-bottom: 40px;
+	margin-top: 20px;
+}
+
+#DeleteSelectedButton{
+	display: none; 
+}
+
+.options_button{
+	padding: 3px;
+	font-family: "Lucida Grande";
+	font-size: 12px;
+	text-decoration: none;
+	background-color: rgb(165, 205, 247);
+	color: #222;
+}
+
+#delete_reserv{
+	margin: 20px;
+	padding: 30px;
+}
+
+#delete_options_wrapper{
+	margin-bottom: 30px;
+}
+
+#delete_link{
+	float: right;
+	height: 10px;
+}
+
+.delete_options_header{
+	font-family: helvetica;
+	color: #2a2b2c;
+}
+
+.options{
+	padding: 5px;
+	width: 120px;
+	text-align: center;
+	font-family: helvetica;
+	float: left;
+	margin: 5px;
+	background-color: rgb(165, 205, 247);
+	color: #2a2b2c;
+}

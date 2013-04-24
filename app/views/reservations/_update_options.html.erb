@@ -1,0 +1,25 @@
+
+<div class="update_multiple_wrapper">
+	<div class="clearfix">
+		<div class="options_header">Associated Recurring Reservations</div>
+		<%= form_tag 'update_multiple' do %>	
+			<% if @associated_recurrances.length > 1 %>
+				<% @associated_recurrances.each do |assoc_recur|%>
+				  <div class="update_options">
+				    <%= check_box_tag("reservation_ids[]", assoc_recur.id, false)%>
+				    <%= assoc_recur.date %>
+				  </div>
+				<% end %>
+				<div class="update_options">
+					<%= check_box_tag("reservation_ids[]", @id_list, false) %>All
+				</div>
+			<% else %>
+			    <div class="update_options">
+					<%= check_box_tag("reservation_ids[]", @reservation.id, false) %>
+					<%= "This reservation" %>
+				</div>
+			<% end %>
+			<%= submit_tag "Update Selected", id: "UpdateSelectedButton" %>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,30 @@
+<%= javascript_include_tag "http://code.jquery.com/ui/1.10.2/jquery-ui.js" %>
+<%= form_for @reservation do |f| %>
+  <fieldset id="create_reserv_form">
+    <% if @reservation.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+            <ul>
+            <% @reservation.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+    <% end %>
+      <%= f.label :date %>
+      <%= f.text_field :date, id: "datepicker", :placeholder => "Pick a date" %>
+      <%= f.label 'Time-In' %>
+      <%= f.time_select :time_in, {:minute_step => 15, :ampm => true}, class: "timepicker", id: 'time_in' %>
+      <%= f.label 'Time-Out' %>
+      <%= f.time_select :time_out, {:minute_step => 15, :ampm => true}, class: "timepicker", id: 'time_out' %>
+      <%= f.label :room %>
+      <%= f.select :room, Reservation::ROOMLIST, id: 'room' %>
+      <%= f.label 'Recurring' %>
+      <%= f.select :recur, Reservation::RECURRANCE_OPTIONS, id: 'recur' %>
+      <%= f.label 'How many times?' %>
+      <%= f.select :recurrance_duration, Reservation::DURATION_OPTIONS, id: 'duration' %>
+      <%= f.submit :id => "create_reserv_button" %> <br>
+  </fieldset>
+<% end %>
+
+
