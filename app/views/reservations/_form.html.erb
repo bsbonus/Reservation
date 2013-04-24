@@ -14,9 +14,13 @@
       <%= f.label :date %>
       <%= f.text_field :date, id: "datepicker", :placeholder => "Pick a date" %>
       <%= f.label 'Time-In' %>
-      <%= f.time_select :time_in, {:minute_step => 15, :ampm => true}, class: "timepicker", id: 'time_in' %>
+      <%= f.time_select :time_in, {:minute_step => 15, :ampm => true, :value => @reservation.time_in.localtime, 
+                                  :default => Time.now.localtime }, 
+                                  class: "timepicker", 
+                                  id: 'time_in' %>
       <%= f.label 'Time-Out' %>
-      <%= f.time_select :time_out, {:minute_step => 15, :ampm => true}, class: "timepicker", id: 'time_out' %>
+      <%= f.time_select :time_out, {:minute_step => 15, :ampm => true, :value => @reservation.time_out.localtime, 
+                                  :default => Time.now.localtime + 1.hour}, class: "timepicker", id: 'time_out' %>
       <%= f.label :room %>
       <%= f.select :room, Reservation::ROOMLIST, id: 'room' %>
       <%= f.label 'Recurring' %>

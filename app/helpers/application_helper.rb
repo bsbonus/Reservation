@@ -1,5 +1,6 @@
 module ApplicationHelper
 
+
 	def user_sign_in
 		greeting = session[:name]
 		if session[:official] != true

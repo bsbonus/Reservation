@@ -7,7 +7,7 @@ feature 'User can delete all instances of a recurrance' do
 		it "should delete that reservation" do
 		    visit '/sessions/create' 
 			visit '/reservations'
-			reserv = FactoryGirl.create(:reservation, id: 10) #recur: "Weekly", recurrance_duration: '4')
+			reserv = FactoryGirl.create(:reservation, id: 10)
 			Reservation.count.should eq(1)
 			visit '/reservations'
 			click_link(reserv.id.to_s)			

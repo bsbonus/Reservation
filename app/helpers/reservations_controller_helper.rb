@@ -1,4 +1,5 @@
 module ReservationsControllerHelper
+		
 	def reservation_reference(reservation)
 		time_in = reservation.time_in.strftime("%l:%M %p")
 		time_out = reservation.time_out.strftime("%l:%M %p")

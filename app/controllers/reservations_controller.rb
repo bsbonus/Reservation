@@ -47,14 +47,22 @@ class ReservationsController < ApplicationController
     @ids = params[:reservation_ids][0].split(" ")
     @reservations = Reservation.find(@ids)
     @reservations.each do |reservation|
-      reservation.update_attributes!(params[:reservation].reject { |k,v| v == @reservation.date} )
+      time_in = Time.new(params[:reservation]['time_in(1i)'].to_i, 
+                         params[:reservation]['time_in(2i)'].to_i,
+                         params[:reservation]['time_in(3i)'].to_i,
+                         params[:reservation]['time_in(4i)'].to_i,
+                         params[:reservation]['time_in(5i)'].to_i )
+
+      time_out = Time.new(params[:reservation]['time_out(1i)'].to_i, 
+                         params[:reservation]['time_out(2i)'].to_i,
+                         params[:reservation]['time_out(3i)'].to_i,
+                         params[:reservation]['time_out(4i)'].to_i,
+                         params[:reservation]['time_out(5i)'].to_i )
+      reservation.time_in = time_in.localtime
+      reservation.time_out = time_out.localtime
+      reservation.save!
     end
 
-      #@ids.each do |id|
-      #  @reserv = Reservation.find(id)
-       # @reserv.update_attribute(:room, params[:reservation][:room])
-        #@reserv.save!
-      #end
     respond_to do |format|
         format.html { redirect_to reservations_url }
     end
