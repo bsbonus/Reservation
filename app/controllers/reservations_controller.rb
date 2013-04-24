@@ -51,13 +51,13 @@ class ReservationsController < ApplicationController
                          params[:reservation]['time_in(2i)'].to_i,
                          params[:reservation]['time_in(3i)'].to_i,
                          params[:reservation]['time_in(4i)'].to_i,
-                         params[:reservation]['time_in(5i)'].to_i )
+                         params[:reservation]['time_in(5i)'].to_i ).localtime
 
       time_out = Time.new(params[:reservation]['time_out(1i)'].to_i, 
                          params[:reservation]['time_out(2i)'].to_i,
                          params[:reservation]['time_out(3i)'].to_i,
                          params[:reservation]['time_out(4i)'].to_i,
-                         params[:reservation]['time_out(5i)'].to_i )
+                         params[:reservation]['time_out(5i)'].to_i).localtime
       reservation.time_in = time_in.localtime
       reservation.time_out = time_out.localtime
       reservation.save!

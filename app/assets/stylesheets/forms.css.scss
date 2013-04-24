@@ -94,10 +94,10 @@
 		margin-top: 20px;
 		margin-bottom: 20px;
 	}
+}
 
-	#UpdateSelectedButton{
-		display: none;
-	}
+#UpdateSelectedButton{
+	display: none;
 }
 
 .delete_partial_zone{
@@ -138,6 +138,7 @@
 	width: 400px;
 	margin-left: auto;
 	margin-right: auto;
+	display: none;
 
 	.update_options{
 		padding: 5px;

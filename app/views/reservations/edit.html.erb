@@ -6,10 +6,6 @@
 			<%= link_to "Update Options", @reservation, :action => "display_delete_options", 
 									  :remote => true, :id => "display_update_options", :class => "options_button" %>
 		</div>
-		<div class="update_partial_zone">
-			<%= render 'update_options' %>
-		</div>
-
 		<div class="option_button_wrapper">
 			<%= link_to "Delete Options", @reservation, :action => "display_delete_options", 
 	      :remote => true, :id => 'display_delete_options', :class => "options_button" %>
