@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
     if auth
       session[:uid] = auth["uid"]
       session[:name] = auth["info"]["name"]
+      session[:email] = auth["info"]["email"]
   	end
     session[:official] = true
     redirect_to root_url, :notice => "Signed in!"

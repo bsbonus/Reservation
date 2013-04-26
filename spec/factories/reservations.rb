@@ -9,5 +9,6 @@ FactoryGirl.define do
     recur ""
     recurrance_id ""
     recurrance_duration 0
+    createdby "brian@goodinc.com"
   end
 end

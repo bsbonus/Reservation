@@ -40,4 +40,9 @@ describe Reservation do
 	  @reservation.should be_invalid								      	
     end
 
+    it "has a 'created-by-User' field" do
+     @reservation = FactoryGirl.build(:reservation)
+     @reservation.createdby.should_not be_nil  
+    end
+
 end

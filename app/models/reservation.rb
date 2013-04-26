@@ -1,6 +1,6 @@
 class Reservation < ActiveRecord::Base
   has_one :recurrance
-  attr_accessible :date, :recur, :recurrance_duration, :room, :time_in, :time_out, :id, :recurrance_id
+  attr_accessible :date, :recur, :recurrance_duration, :room, :time_in, :time_out, :id, :recurrance_id, :createdby
   validates_presence_of :room, :date
   validate :validate_start_time
   validate :validate_previous_reservations

@@ -3,29 +3,16 @@
 
 <% headers.each do |day| %>
 	<% if @date_range[i] == Date.today %>
-		<%= content_tag(:td, :id => 'today', :class => 'cell') do %>
-			<%= content_tag(:div, "Today!" )  %>
-			<%= render 'day', collection: day_filtered(headers[i], headers[i]) %> 
-		<% end %>
-		<% i = i + 1 %>
-
+		<%= today_cell(i, @date_range) %>
+		<%= i = i + 1 %>
 	<% elsif @date_range[i].month != Time.now.month %>
-		<%= content_tag(:td, :id => "not_in_month", :class => 'cell') do %>
-			<%= content_tag(:div, @date_range[i].strftime("%B %e") )  %>
-			<%= render 'day', collection: day_filtered(headers[i], headers[i]) %>
-		<% end %>
+		<%= not_in_month_cell(i, @date_range) %>
 		<% i = i + 1 %>
-
 	<% else %>
-		<%= content_tag(:td, :id => "not_today", :class => 'cell') do %>
-			<%= content_tag(:div, @date_range[i].strftime("%B %e") )  %>
-			<%= render 'day', collection: day_filtered(headers[i], headers[i]) %>
-		<% end %>
+		<%= not_today_cell(i, @date_range) %>
 	<% i = i + 1 %>
 	<% end %>
 <% end %>
-
-
 
 
 

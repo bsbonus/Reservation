@@ -1,7 +1,7 @@
 <% collection.each do |day_reservations| %>
 		<% room = day_reservations.room %>
-		<% time_in = day_reservations.time_in.strftime("%l:%M %p") %>
-		<% time_out = day_reservations.time_out.strftime("%l:%M %p") %>
+		<% time_in = format_time day_reservations.time_in %>
+		<% time_out = format_time day_reservations.time_out %>
 		<% reservation_details = room + " " + time_in + " " + time_out %>
 		<p id="single_reserv">
 			<%= link_to reservation_details, edit_reservation_path(day_reservations, :class => class_generator(day_reservations) ) ,

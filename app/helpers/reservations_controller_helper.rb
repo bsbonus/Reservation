@@ -14,7 +14,7 @@ module ReservationsControllerHelper
 			 @class = "normal" 
 		else 
 			 @class = "recurrance"  
-		end 
+		end
 	end
 
 	def find_recurrances(reservation)
