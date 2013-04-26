@@ -3,13 +3,13 @@
 
 <% headers.each do |day| %>
 	<% if @date_range[i] == Date.today %>
-		<%= today_cell(i, @date_range) %>
+		<%= create_cell(i, @date_range, "today") %>
 		<%= i = i + 1 %>
 	<% elsif @date_range[i].month != Time.now.month %>
-		<%= not_in_month_cell(i, @date_range) %>
+		<%= create_cell(i, @date_range, "not_in_month") %>
 		<% i = i + 1 %>
 	<% else %>
-		<%= not_today_cell(i, @date_range) %>
+		<%= create_cell(i, @date_range, "not_today") %>
 	<% i = i + 1 %>
 	<% end %>
 <% end %>

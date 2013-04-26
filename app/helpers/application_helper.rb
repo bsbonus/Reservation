@@ -145,21 +145,9 @@ module ApplicationHelper
       time_in.strftime("%l:%M %p")
     end
 
-
-  def today_cell(i, date_range)
-    #@date_range =  date_range
+  def create_cell(i, date_range, type)
     headers = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    content_tag(:td, :id => 'today', :class => 'cell') do
-      content_tag(:div) do
-        concat "Today!"
-        concat render 'day', collection: day_filtered(headers[i], headers[i])
-      end
-    end
-  end
-
-  def not_in_month_cell(i, date_range)
-    headers = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    content_tag(:td, :id => "not_in_month", :class => 'cell') do
+    content_tag(:td, :id => "#{type}", :class => 'cell') do
       content_tag(:div) do
         concat format_date @date_range[i]
         concat render 'day', collection: day_filtered(headers[i], headers[i])
@@ -167,15 +155,16 @@ module ApplicationHelper
     end
   end
 
-  def not_today_cell(i, date_range)
-    headers = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    content_tag(:td, :id => "not_today", :class => 'cell') do
-      content_tag(:div) do
-        concat format_date @date_range[i]   
-        concat render 'day', collection: day_filtered(headers[i], headers[i])
-      end
-    end
-  end
+
+
+
+
+
+
+
+
+
+
 
 
 
