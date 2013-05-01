@@ -1,13 +1,5 @@
 module ReservationsControllerHelper
 		
-	def reservation_reference(reservation)
-		time_in = reservation.time_in.strftime("%l:%M %p")
-		time_out = reservation.time_out.strftime("%l:%M %p")
-		date_fix = reservation.date.strftime("%A %B %e")
-  		raw("#{date_fix}  #{reservation.room} #{time_in} #{time_out}
-  			#{link_to "Edit", reservation_path(reservation) } 
-  			#{link_to 'Delete', reservation(reservation), method: :delete, data: { confirm: 'Are you sure?' }}")
-	end
 
 	def class_generator(reservation)
 		if Recurrance.find_by_parent_id(reservation.recurrance_id) == nil 

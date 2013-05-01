@@ -101,53 +101,53 @@ module ApplicationHelper
     return all_unfiltered_recurrances
   end
 
-    def generate_recurrances(recurrance, start_day)
-      unfiltered_recurrances = []
-      i = 1
-      while i <= (recurrance.duration + 1) do 
-        date = recurrance.start_date + (7 * i).days
-          unfiltered_recurrances << Reservation.new(id: recurrance.id, date: date, room: recurrance.room, 
-                                                  time_in: recurrance.time_in, time_out: recurrance.time_out,
-                                                  recur: recurrance.recur, recurrance_id: recurrance.parent_id)        
-        i = i + 1
-      end
-      return unfiltered_recurrances
+  def generate_recurrances(recurrance, start_day)
+    unfiltered_recurrances = []
+    i = 1
+    while i <= (recurrance.duration + 1) do 
+      date = recurrance.start_date + (7 * i).days
+        unfiltered_recurrances << Reservation.new(id: recurrance.id, date: date, room: recurrance.room, 
+                                                time_in: recurrance.time_in, time_out: recurrance.time_out,
+                                                recur: recurrance.recur, recurrance_id: recurrance.parent_id)        
+      i = i + 1
     end
+    return unfiltered_recurrances
+  end
 
 
-  	def render_week(date)
-  		date = date
-      content_tag(:tr) do 
-        render 'week', collection: week_filtered(date)
-      end
-  	end
-
-    def render_weeks(date, limit=0)
-      @date = date
-      limit =  limit
-      i = 1
-      all_weeks = render_week(@date)
-      while i <= limit
-        all_weeks = all_weeks + render_week(@date + (i * 7).days)
-        i += 1
-      end
-      return all_weeks
+	def render_week(date)
+    content_tag(:tr) do 
+      render 'week', collection: week_filtered(date)
     end
+	end
 
-
-  	def format_date(date)
-  		date = date
-  		date.strftime("%B %e")
-  	end
-
-    def format_time(time_in)
-      time_in = time_in
-      time_in.strftime("%l:%M %p")
+  def render_weeks(date, limit=0)
+    @date = date
+    limit =  limit
+    i = 1
+    all_weeks = render_week(@date)
+    while i <= limit
+      all_weeks = all_weeks + render_week(@date + (i * 7).days)
+      i += 1
     end
+    return all_weeks
+  end
+
+  def format_month(date)
+    date.strftime("%B %Y")
+  end
+
+	def format_date(date)
+		date.strftime("%B %e")
+	end
+
+  def format_time(time_in)
+    time_in.strftime("%l:%M %p")
+  end
 
   def create_cell(i, date_range, type)
     headers = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    content_tag(:td, :id => "#{type}", :class => 'cell') do
+    content_tag(:td, :class => type ) do
       content_tag(:div) do
         concat format_date @date_range[i]
         concat render 'day', collection: day_filtered(headers[i], headers[i])
@@ -155,17 +155,13 @@ module ApplicationHelper
     end
   end
 
-
-
-
-
-
-
-
-
-
-
-
-
+  def create_day(day_reservations)
+    room = day_reservations.room 
+    time_in = format_time day_reservations.time_in 
+    time_out = format_time day_reservations.time_out 
+    reservation_details = room + " " + time_in + " " + time_out + day_reservations.createdby.to_s 
+    link_to reservation_details, edit_reservation_path(day_reservations, :class => class_generator(day_reservations) ) ,
+      :id => day_reservations.id, :class => class_generator(day_reservations) 
+  end
 
 end

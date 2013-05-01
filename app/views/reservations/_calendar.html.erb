@@ -4,14 +4,13 @@
 	<h2 id="month">
 	  <% calendar_header %>
 	  <% week_limit %>
-	  <%= link_to '<', reservations_path(:date => @date.prev_month, :limit => @limit) %>  
-	  <%= @date.strftime("%B %Y") %>
-	  <%= link_to '>', reservations_path(:date => @date.next_month, :limit => @limit) %>  
+	  <%= link_to '<', reservations_path(:date => @date.prev_month.at_beginning_of_month, :limit => @limit) %>
+	  <%= format_month(@date) %>
+	  <%= link_to '>', reservations_path(:date => @date.next_month.at_beginning_of_month, :limit => @limit) %>  
 	</h2>
 	<h3 id="week_adder">
 		<%= render 'week_adder' %>
 	</h3>
-
 	<table id="calendar">
 		<% headers = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday] %>
 		<% headers.each do |day_name| %>

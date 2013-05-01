@@ -84,7 +84,6 @@ class ReservationsController < ApplicationController
   end
 
   def delete_multiple
-    
     if params[:reservation_ids] #should be adapted to fit any size of ID, eg. id of 100,000
       params[:reservation_ids] = params[:reservation_ids][0].split(" ") 
     else
