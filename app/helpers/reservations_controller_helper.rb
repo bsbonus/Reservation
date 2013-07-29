@@ -2,10 +2,14 @@ module ReservationsControllerHelper
 		
 
 	def class_generator(reservation)
-		if Recurrance.find_by_parent_id(reservation.recurrance_id) == nil 
-			 @class = "normal" 
-		else 
-			 @class = "recurrance"  
+		if reservation.createdby && reservation.createdby == session["email"]
+			@class = "mine"
+		else	
+			if Recurrance.find_by_parent_id(reservation.recurrance_id) == nil 
+			 	@class = "normal" 
+			else 
+			 	@class = "recurrance"  
+			end
 		end
 	end
 

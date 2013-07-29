@@ -50,4 +50,13 @@ describe 'rendering the index' do
 		click_link('see another week')
 		page.should have_selector('div', text: week_later)
 	end
+
+	it "makes my reservations visibly noticeable in some way" do 
+		reserv = FactoryGirl.create(:reservation, :createdby => "brian@goodinc.com")
+		id = reserv.id.to_s
+		visit '/sessions/create' 
+		visit '/reservations'
+		reservation = find("#" + id)
+		reservation['class'].should eq("mine")
+	end
 end

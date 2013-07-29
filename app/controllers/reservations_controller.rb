@@ -45,7 +45,8 @@ class ReservationsController < ApplicationController
   def update
     @reservation = Reservation.find(params[:id])
     find_recurrances(@reservation)
-    if params[:reservation_ids] != nil 
+    
+    if params[:reservation_ids]
       @ids = params[:reservation_ids][0].split(" ")
       @reservations = Reservation.find(@ids)
       @reservations.each do |reservation|
@@ -53,17 +54,17 @@ class ReservationsController < ApplicationController
                            params[:reservation]['time_in(2i)'].to_i,
                            params[:reservation]['time_in(3i)'].to_i,
                            params[:reservation]['time_in(4i)'].to_i,
-                           params[:reservation]['time_in(5i)'].to_i ).localtime
+                           params[:reservation]['time_in(5i)'].to_i )
 
         time_out = Time.new(params[:reservation]['time_out(1i)'].to_i, 
                            params[:reservation]['time_out(2i)'].to_i,
                            params[:reservation]['time_out(3i)'].to_i,
                            params[:reservation]['time_out(4i)'].to_i,
-                           params[:reservation]['time_out(5i)'].to_i).localtime
+                           params[:reservation]['time_out(5i)'].to_i)
         reservation.room = params[:reservation]["room"]
-        reservation.time_in = time_in.localtime
-        reservation.time_out = time_out.localtime
-        reservation.save!
+        reservation.time_in = time_in
+        reservation.time_out = time_out
+        reservation.save
       end
     else 
       @reservation.update_attributes(params[:reservation])

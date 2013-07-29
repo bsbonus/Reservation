@@ -21,7 +21,7 @@
       <%= f.label 'Time-Out' %>
       <%= f.time_select :time_out, {:minute_step => 15, :ampm => true, :value => @reservation.time_out.localtime, 
                                   :default => Time.now.localtime + 1.hour}, class: "timepicker", id: 'time_out' %>
-      <%= f.label :room %>
+      <%= f.label "place where shit happens" %>
       <%= f.select :room, Reservation::ROOMLIST, id: 'room' %>
       <%= f.label 'Recurring' %>
       <%= f.select :recur, Reservation::RECURRANCE_OPTIONS, id: 'recur' %>

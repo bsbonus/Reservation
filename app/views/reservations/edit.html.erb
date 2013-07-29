@@ -3,7 +3,7 @@
 	<% if params[:class] == "recurrance" %>
 		<%= render 'recur_form' %>
 		<div class="option_button_wrapper">
-			<%= link_to "Update Options", @reservation, :action => "display_delete_options", 
+			<%= link_to "Update Options", @reservation, :action => "display_update_options", 
 									  :remote => true, :id => "display_update_options", :class => "options_button" %>
 		</div>
 		<div class="option_button_wrapper">

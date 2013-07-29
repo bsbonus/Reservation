@@ -46,6 +46,7 @@ group :test do
 	gem 'factory_girl_rails'
 	gem 'faker'
 	gem 'capybara'
+	gem 'capybara-webkit'
 	gem 'guard-rspec'
 	gem 'launchy'
 

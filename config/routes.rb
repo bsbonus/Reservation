@@ -15,7 +15,9 @@ CalendarV4::Application.routes.draw do
   match "/sessions/create" => 'sessions#create'
   match "sessions/destroy" => 'sessions#destroy'
   match "/reservations/:id/edit/delete_multiple" => 'reservations#delete_multiple'
-  match "/reservations/:id/edit/update_multiple" => 'reservations#update_multiple'
+  match "/reservations/:id/edit/update_multiple" => 'reservations#update'
+  match "/reservations/:id/update_multiple" => 'reservations#update'
+  match "/reservations/:id/update" => 'reservations#update'
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
   match "/a/goodinc.com/o8/ud" => "sessions#create"
@@ -26,11 +28,11 @@ CalendarV4::Application.routes.draw do
       resources :reservations do
         member do
           post :delete_multiple
-          post :update_multiple
+          put :update_multiple
         end 
         collection do 
           post :delete_multiple
-          post :update_multiple
+          put :update_multiple
         end
       end
   # Sample resource route with options:
