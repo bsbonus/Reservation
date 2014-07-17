@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
 
-  before_filter :authorize
+  #before_filter :authorize
   include ReservationsControllerHelper
 
   def index
@@ -29,7 +29,7 @@ class ReservationsController < ApplicationController
   	@reservation = Reservation.new
     respond_to do |format|
       format.html
-    end 
+    end
   end
 
   def edit
@@ -39,24 +39,24 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       format.html
-    end  
+    end
   end
 
   def update
     @reservation = Reservation.find(params[:id])
     find_recurrances(@reservation)
-    
+
     if params[:reservation_ids]
       @ids = params[:reservation_ids][0].split(" ")
       @reservations = Reservation.find(@ids)
       @reservations.each do |reservation|
-        time_in = Time.new(params[:reservation]['time_in(1i)'].to_i, 
+        time_in = Time.new(params[:reservation]['time_in(1i)'].to_i,
                            params[:reservation]['time_in(2i)'].to_i,
                            params[:reservation]['time_in(3i)'].to_i,
                            params[:reservation]['time_in(4i)'].to_i,
                            params[:reservation]['time_in(5i)'].to_i )
 
-        time_out = Time.new(params[:reservation]['time_out(1i)'].to_i, 
+        time_out = Time.new(params[:reservation]['time_out(1i)'].to_i,
                            params[:reservation]['time_out(2i)'].to_i,
                            params[:reservation]['time_out(3i)'].to_i,
                            params[:reservation]['time_out(4i)'].to_i,
@@ -66,7 +66,7 @@ class ReservationsController < ApplicationController
         reservation.time_out = time_out
         reservation.save
       end
-    else 
+    else
       @reservation.update_attributes(params[:reservation])
     end
     respond_to do |format|
@@ -77,25 +77,25 @@ class ReservationsController < ApplicationController
   def show
     @reservation = Reservation.find(params[:id])
     find_recurrances(@reservation)
- 
+
     respond_to do |format|
       format.html
       format.js
-    end    
+    end
   end
 
   def delete_multiple
     if params[:reservation_ids] #should be adapted to fit any size of ID, eg. id of 100,000
-      params[:reservation_ids] = params[:reservation_ids][0].split(" ") 
+      params[:reservation_ids] = params[:reservation_ids][0].split(" ")
     else
-       redirect_to reservations_url   
+       redirect_to reservations_url
     end
     @reservations = Reservation.find(params[:reservation_ids])
     @recurrance_id = @reservations.first.recurrance_id
     @parent_id = @recurrance_id
     @recurrance = Recurrance.find_by_parent_id(@parent_id)
     @exclusions = Exclusion.where(recurrance_id: @parent_id)
-    if @exclusions.count > 0 
+    if @exclusions.count > 0
       if @exclusions.count == @recurrance.duration
         @recurrance.destroy
         @exclusions.each do |x|
@@ -124,7 +124,7 @@ class ReservationsController < ApplicationController
   def authorize
     if session[:official] != true
       render 'shared/signin'
-    end 
+    end
   end
 
 end
