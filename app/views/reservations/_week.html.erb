@@ -4,7 +4,7 @@
 <% headers.each do |day| %>
 	<% if @date_range[i] == Date.today %>
 		<%= create_cell(i, @date_range, "today") %>
-		<%= i = i + 1 %>
+		<% i = i + 1 %>
 	<% elsif @date_range[i].month != Time.now.month %>
 		<%= create_cell(i, @date_range, "not_in_month") %>
 		<% i = i + 1 %>
